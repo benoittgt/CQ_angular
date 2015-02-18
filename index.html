@@ -11,7 +11,9 @@
     <div class="container">
       <h1>CQ logs</h1>
       <div ng-controller="LogsController">
-        <div ng-repeat="cqlog in logs | orderBy:'-distance' | limitTo:20" class="panel panel-default">
+        <input class="form-control" placeholder="...." type="text" ng-model="filterRq">
+        </br>
+        <div ng-repeat="cqlog in logs | filter:filterRq | orderBy:'-distance' | limitTo:20" class="panel panel-default">
           <div class="panel-heading">The {{cqlog.date}} at {{cqlog.time}}</div>
           <div class="panel-body">
             <p>Call : {{cqlog.idcall}}</p> 
